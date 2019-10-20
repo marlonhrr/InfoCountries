@@ -9,7 +9,8 @@
     <StackLayout
         Padding="10">
         <ListView
-            HasUnevenRows="False">
+            HasUnevenRows="False"
+            ItemsSource="{Binding Countries}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

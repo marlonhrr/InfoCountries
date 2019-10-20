@@ -8,8 +8,8 @@ namespace InfoCountries.Common.Services
 {
     public interface IApiService
     {
-        Task<bool> CheckConnection(string url);
-        Task<Response<object>> GetListAsync<T>(
+        Task<Response> CheckConnection();
+        Task<Response> GetListAsync<T>(
             string urlBase,
             string servicePrefix,
             string controller);

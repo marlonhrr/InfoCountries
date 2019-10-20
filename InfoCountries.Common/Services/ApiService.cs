@@ -11,17 +11,36 @@ namespace InfoCountries.Common.Services
 {
     public class ApiService : IApiService
     {
-        public async Task<bool> CheckConnection(string url)
+        public async Task<Response> CheckConnection()
         {
             if (!CrossConnectivity.Current.IsConnected)
             {
-                return false;
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = "Please turn on the internet connection.",
+                };
             }
 
-            return await CrossConnectivity.Current.IsRemoteReachable(url);
+            var isReachable = await CrossConnectivity.Current.IsRemoteReachable("https://www.google.com/");
+
+            if (!isReachable)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = "Check you internet connection.",
+                };
+            }
+
+            return new Response
+            {
+                IsSuccess = true,
+                Message = "Ok",
+            };
         }
 
-        public async Task<Response<Object>> GetListAsync<T>(
+        public async Task<Response> GetListAsync<T>(
             string urlBase,
             string servicePrefix,
             string controller)
@@ -36,7 +55,7 @@ namespace InfoCountries.Common.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new Response<object>
+                    return new Response
                     {
                         IsSuccess = false,
                         Message = result,
@@ -44,7 +63,7 @@ namespace InfoCountries.Common.Services
                 }
 
                 var list = JsonConvert.DeserializeObject<List<T>>(result);
-                return new Response<object>
+                return new Response
                 {
                     IsSuccess = true,
                     Message = "Ok",
@@ -53,7 +72,7 @@ namespace InfoCountries.Common.Services
             }
             catch (Exception ex)
             {
-                return new Response<object>
+                return new Response
                 {
                     IsSuccess = false,
                     Message = ex.Message,
