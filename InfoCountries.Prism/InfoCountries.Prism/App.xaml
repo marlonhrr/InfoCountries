@@ -9,6 +9,7 @@
 
             <!-- Parameters -->
             <x:String x:Key="UrlAPI">https://restcountries.eu/</x:String>
+            <x:String x:Key="InternetUrl">https://www.google.com/</x:String>
 
             <!-- Colors -->
             <Color x:Key="MainColor"></Color>

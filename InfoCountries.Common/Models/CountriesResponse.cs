@@ -37,16 +37,16 @@ namespace InfoCountries.Common.Models
         public long Population { get; set; }
 
         [JsonProperty("latlng")]
-        public List<long> Latlng { get; set; }
+        public List<double> Latlng { get; set; }
 
         [JsonProperty("demonym")]
         public string Demonym { get; set; }
 
         [JsonProperty("area")]
-        public long Area { get; set; }
+        public double? Area { get; set; }
 
         [JsonProperty("gini")]
-        public double Gini { get; set; }
+        public double? Gini { get; set; }
 
         [JsonProperty("timezones")]
         public List<string> Timezones { get; set; }

@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using InfoCountries.Common.Services;
+using Prism.Commands;
 using Prism.Navigation;
 
 namespace InfoCountries.Prism.ViewModels
@@ -6,16 +7,18 @@ namespace InfoCountries.Prism.ViewModels
     public class HomePageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+        private readonly IApiService _apiService;
         private bool _isRunning;
         private bool _isEnabled;
         private DelegateCommand _welcomeCommand;
 
         public HomePageViewModel(
-            INavigationService navigationService) : base(navigationService)
+            INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
             Title = "InfoCountries";
             IsEnabled = true;
             _navigationService = navigationService;
+            _apiService = apiService;
         }
 
         public DelegateCommand WelcomeCommand => _welcomeCommand ?? (_welcomeCommand = new DelegateCommand(Welcome));
@@ -37,7 +40,16 @@ namespace InfoCountries.Prism.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
-            //var url = App.Current.Resources["UrlApi"].ToString();           
+            var url = App.Current.Resources["InternetUrl"].ToString();
+            var connection = await _apiService.CheckConnection(url);
+            if (!connection)
+            {
+                IsEnabled = true;
+                IsRunning = false;
+                await App.Current.MainPage.DisplayAlert("Error", "Check the internet connection.", "Accept");
+                return;
+            }
+
             await _navigationService.NavigateAsync("CountriesPage");
 
             IsRunning = false;
