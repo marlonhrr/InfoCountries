@@ -5,7 +5,11 @@
              x:Class="InfoCountries.Prism.App">
 	<Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <ResourceDictionary>
 
-	</Application.Resources>
+            <!-- URL that will be consumed -->
+            <x:String x:Key="UrlAPI">https://restcountries.eu/</x:String>
+
+        </ResourceDictionary>
+    </Application.Resources>
 </prism:PrismApplication>
