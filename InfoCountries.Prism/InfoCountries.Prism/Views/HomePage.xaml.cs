@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace InfoCountries.Prism.Views
 {
@@ -8,12 +7,6 @@ namespace InfoCountries.Prism.Views
         public HomePage()
         {
             InitializeComponent();
-            GetCountries();
-        }
-
-        private async void GetCountries()
-        {
-            
         }
     }
 }

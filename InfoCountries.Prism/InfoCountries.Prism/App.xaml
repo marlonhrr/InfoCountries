@@ -7,9 +7,16 @@
 
         <ResourceDictionary>
 
-            <!-- URL that will be consumed -->
+            <!-- Parameters -->
             <x:String x:Key="UrlAPI">https://restcountries.eu/</x:String>
 
+            <!-- Colors -->
+            <Color x:Key="MainColor"></Color>
+            <Color x:Key="FontColor"></Color>
+            <Color x:Key="AccentColor1"></Color>
+            <Color x:Key="AccentColor2"></Color>
+            <Color x:Key="BackgroundColor"></Color>
+            
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>
