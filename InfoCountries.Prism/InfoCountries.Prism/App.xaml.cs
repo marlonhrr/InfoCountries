@@ -28,6 +28,7 @@ namespace InfoCountries.Prism
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<CountriesPage, CountriesPageViewModel>();
+            containerRegistry.RegisterForNavigation<CountryPage, CountryPageViewModel>();
         }
     }
 }

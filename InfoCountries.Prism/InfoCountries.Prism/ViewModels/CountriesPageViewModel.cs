@@ -13,7 +13,7 @@ namespace InfoCountries.Prism.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
-        private ObservableCollection<CountriesResponse> _countries;
+        private ObservableCollection<CountryItemViewModel> _countries;
         private bool _isRefreshing;
         private bool _isEnabled;
         private string _filter;
@@ -30,7 +30,7 @@ namespace InfoCountries.Prism.ViewModels
 
         public DelegateCommand SearchCommand => _searchCommand ?? (_searchCommand = new DelegateCommand(Search));
 
-        public ObservableCollection<CountriesResponse> Countries
+        public ObservableCollection<CountryItemViewModel> Countries
         {
             get => _countries;
             set => SetProperty(ref _countries, value);
@@ -77,7 +77,6 @@ namespace InfoCountries.Prism.ViewModels
                     "Accept");
                 await App.Current.MainPage.Navigation.PopAsync();
                 return;
-
             }
 
             var response = await _apiService.GetListAsync<CountriesResponse>(
@@ -96,20 +95,53 @@ namespace InfoCountries.Prism.ViewModels
             }
 
             countriesList = (List<CountriesResponse>)response.Result;
-            Countries = new ObservableCollection<CountriesResponse>(countriesList);
+            Countries = new ObservableCollection<CountryItemViewModel>(
+                ToCountryItemViewModel());
             IsRefreshing = false;
+        }
+
+        private IEnumerable<CountryItemViewModel> ToCountryItemViewModel()
+        {
+            return countriesList.Select(c => new CountryItemViewModel
+            {
+                Alpha2Code = c.Alpha2Code,
+                Alpha3Code = c.Alpha3Code,
+                AltSpellings = c.AltSpellings,
+                Area = c.Area,
+                Borders = c.Borders,
+                CallingCodes = c.CallingCodes,
+                Capital = c.Capital,
+                Cioc = c.Cioc,
+                Currencies = c.Currencies,
+                Demonym = c.Demonym,
+                Flag = c.Flag,
+                Gini = c.Gini,
+                Languages = c.Languages,
+                Latlng = c.Latlng,
+                Name = c.Name,
+                NativeName = c.NativeName,
+                NumericCode = c.NumericCode,
+                Population = c.Population,
+                Region = c.Region,
+                RegionalBlocs = c.RegionalBlocs,
+                Subregion = c.Subregion,
+                Timezones = c.Timezones,
+                TopLevelDomain = c.TopLevelDomain,
+                Translations = c.Translations,
+            });
         }
 
         private void Search()
         {
             if (string.IsNullOrEmpty(this.Filter))
             {
-                Countries = new ObservableCollection<CountriesResponse>(countriesList);
+                Countries = new ObservableCollection<CountryItemViewModel>(
+                    ToCountryItemViewModel());
             }
             else
             {
-                Countries = new ObservableCollection<CountriesResponse>(
-                    countriesList.Where(
+                Countries = new ObservableCollection<CountryItemViewModel>(
+                    ToCountryItemViewModel().Where(
                         c => c.Name.ToLower().Contains(Filter.ToLower()) ||
                             c.Capital.ToLower().Contains(Filter.ToLower())));
             }
