@@ -102,7 +102,7 @@ namespace InfoCountries.Prism.ViewModels
 
         private IEnumerable<CountryItemViewModel> ToCountryItemViewModel()
         {
-            return countriesList.Select(c => new CountryItemViewModel
+            return countriesList.Select(c => new CountryItemViewModel(_navigationService)
             {
                 Alpha2Code = c.Alpha2Code,
                 Alpha3Code = c.Alpha3Code,

@@ -23,6 +23,7 @@
                 BackgroundColor="Navy"
         	    IsEnabled="{Binding IsEnabled}"
                 Command="{Binding WelcomeCommand}"
+                HeightRequest="46"
         	    Text="Welcome"
                 TextColor="White"/>
         </StackLayout>
