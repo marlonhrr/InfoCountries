@@ -26,7 +26,7 @@
                         <Frame
                             CornerRadius="20"
                             HasShadow="True"
-                            Margin="10">
+                            Margin="5">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>

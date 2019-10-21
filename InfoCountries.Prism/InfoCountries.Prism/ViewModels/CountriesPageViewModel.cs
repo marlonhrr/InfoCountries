@@ -14,7 +14,7 @@ namespace InfoCountries.Prism.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
         private ObservableCollection<CountriesResponse> _countries;
-        private bool _isRunning;
+        private bool _isRefreshing;
         private bool _isEnabled;
         private string _filter;
         private DelegateCommand _searchCommand;
@@ -36,10 +36,10 @@ namespace InfoCountries.Prism.ViewModels
             set => SetProperty(ref _countries, value);
         }
 
-        public bool IsRunning
+        public bool IsRefreshing
         {
-            get => _isRunning;
-            set => SetProperty(ref _isRunning, value);
+            get => _isRefreshing;
+            set => SetProperty(ref _isRefreshing, value);
         }
 
         public bool IsEnabled
@@ -65,12 +65,12 @@ namespace InfoCountries.Prism.ViewModels
 
         private async void LoadCountries()
         {
-            IsRunning = true;
+            IsRefreshing = true;
             var connection = await _apiService.CheckConnection();
             if (!connection.IsSuccess)
             {
                 IsEnabled = true;
-                IsRunning = false;
+                IsRefreshing = false;
                 await App.Current.MainPage.DisplayAlert(
                     "Error",
                     "Check the internet connection.",
@@ -87,7 +87,7 @@ namespace InfoCountries.Prism.ViewModels
 
             if (!response.IsSuccess)
             {
-                IsRunning = false;
+                IsRefreshing = false;
                 await App.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Message,
@@ -97,7 +97,7 @@ namespace InfoCountries.Prism.ViewModels
 
             countriesList = (List<CountriesResponse>)response.Result;
             Countries = new ObservableCollection<CountriesResponse>(countriesList);
-            IsRunning = false;
+            IsRefreshing = false;
         }
 
         private void Search()
@@ -110,7 +110,8 @@ namespace InfoCountries.Prism.ViewModels
             {
                 Countries = new ObservableCollection<CountriesResponse>(
                     countriesList.Where(
-                        c => c.Name.ToLower().Contains(Filter.ToLower())));
+                        c => c.Name.ToLower().Contains(Filter.ToLower()) ||
+                            c.Capital.ToLower().Contains(Filter.ToLower())));
             }
         }
     }
