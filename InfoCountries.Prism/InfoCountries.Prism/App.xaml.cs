@@ -29,6 +29,11 @@ namespace InfoCountries.Prism
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<CountriesPage, CountriesPageViewModel>();
             containerRegistry.RegisterForNavigation<CountryPage, CountryPageViewModel>();
+            containerRegistry.RegisterForNavigation<CountryTabbedPage, CountryTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<BordersPage, BordersPageViewModel>();
+            containerRegistry.RegisterForNavigation<CurrenciesPage, CurrenciesPageViewModel>();
+            containerRegistry.RegisterForNavigation<TranslationsPage, TranslationsPageViewModel>();
+            containerRegistry.RegisterForNavigation<LanguagesPage, LanguagesPageViewModel>();
         }
     }
 }
