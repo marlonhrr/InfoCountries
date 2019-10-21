@@ -12,16 +12,19 @@
 
             </Image>
             <Label 
-            Text="Welcome to the App InfoCountries"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"/>
+                Text="Welcome to the App InfoCountries"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
             <ActivityIndicator
-        	IsRunning="{Binding IsRunning}"
-        	VerticalOptions="CenterAndExpand"/>
+        	    IsRunning="{Binding IsRunning}"
+        	    VerticalOptions="CenterAndExpand"/>
             <Button
-        	Command="{Binding WelcomeCommand}"
-        	IsEnabled="{Binding IsEnabled}"
-        	Text="Welcome"/>
+                BorderRadius="23"
+                BackgroundColor="Navy"
+        	    IsEnabled="{Binding IsEnabled}"
+                Command="{Binding WelcomeCommand}"
+        	    Text="Welcome"
+                TextColor="White"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>
