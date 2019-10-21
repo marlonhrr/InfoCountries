@@ -21,7 +21,6 @@
             <Button
         	Command="{Binding WelcomeCommand}"
         	IsEnabled="{Binding IsEnabled}"
-            BorderWidth="30"
         	Text="Welcome"/>
         </StackLayout>
     </ScrollView>

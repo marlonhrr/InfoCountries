@@ -1,9 +1,11 @@
 ﻿using InfoCountries.Common.Models;
 using InfoCountries.Common.Services;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace InfoCountries.Prism.ViewModels
 {
@@ -14,6 +16,9 @@ namespace InfoCountries.Prism.ViewModels
         private ObservableCollection<CountriesResponse> _countries;
         private bool _isRunning;
         private bool _isEnabled;
+        private string _filter;
+        private DelegateCommand _searchCommand;
+        private List<CountriesResponse> countriesList;
 
         public CountriesPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
@@ -22,6 +27,8 @@ namespace InfoCountries.Prism.ViewModels
             Title = "Countries";
             LoadCountries();
         }
+
+        public DelegateCommand SearchCommand => _searchCommand ?? (_searchCommand = new DelegateCommand(Search));
 
         public ObservableCollection<CountriesResponse> Countries
         {
@@ -37,8 +44,18 @@ namespace InfoCountries.Prism.ViewModels
 
         public bool IsEnabled
         {
-            get => _isRunning;
-            set => SetProperty(ref _isRunning, value);
+            get => _isEnabled;
+            set => SetProperty(ref _isEnabled, value);
+        }
+
+        public string Filter
+        {
+            get => _filter;
+            set 
+            {
+                SetProperty(ref _filter, value);
+                Search();
+            }
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
@@ -49,15 +66,14 @@ namespace InfoCountries.Prism.ViewModels
         private async void LoadCountries()
         {
             IsRunning = true;
-            
             var connection = await _apiService.CheckConnection();
             if (!connection.IsSuccess)
             {
                 IsEnabled = true;
                 IsRunning = false;
                 await App.Current.MainPage.DisplayAlert(
-                    "Error", 
-                    "Check the internet connection.", 
+                    "Error",
+                    "Check the internet connection.",
                     "Accept");
                 await App.Current.MainPage.Navigation.PopAsync();
                 return;
@@ -69,20 +85,33 @@ namespace InfoCountries.Prism.ViewModels
                 "/rest",
                 "/v2/all");
 
-            if(!response.IsSuccess)
+            if (!response.IsSuccess)
             {
-                _isRunning = false;
+                IsRunning = false;
                 await App.Current.MainPage.DisplayAlert(
-                    "Error", 
-                    response.Message, 
+                    "Error",
+                    response.Message,
                     "Accept");
                 return;
             }
 
+            countriesList = (List<CountriesResponse>)response.Result;
+            Countries = new ObservableCollection<CountriesResponse>(countriesList);
             IsRunning = false;
+        }
 
-            var list = (List<CountriesResponse>)response.Result;
-            this.Countries = new ObservableCollection<CountriesResponse>(list);
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(this.Filter))
+            {
+                Countries = new ObservableCollection<CountriesResponse>(countriesList);
+            }
+            else
+            {
+                Countries = new ObservableCollection<CountriesResponse>(
+                    countriesList.Where(
+                        c => c.Name.ToLower().Contains(Filter.ToLower())));
+            }
         }
     }
 }

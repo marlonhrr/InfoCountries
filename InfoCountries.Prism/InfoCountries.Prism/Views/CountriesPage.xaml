@@ -4,42 +4,58 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.CountriesPage"
+             BackgroundColor="Silver"
              Title="{Binding Title}">
 
-    <StackLayout
-        Padding="10">
+    <StackLayout>
+        <SearchBar
+            BackgroundColor="Silver"
+            Text="{Binding Filter}"
+            Placeholder="Search a country..."
+            SearchCommand="{Binding SearchCommand}">
+        </SearchBar>
         <ListView
-            HasUnevenRows="False"
+            BackgroundColor="Silver"
+            HasUnevenRows="true" 
+            IsPullToRefreshEnabled="true"
+            IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
             ItemsSource="{Binding Countries}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image
-                                Grid.Column="0"
-                                Source="{Binding Flag}"/>
-                            <Grid
-                                Grid.Column="1">
+                        <Frame
+                            CornerRadius="20"
+                            HasShadow="True"
+                            Margin="10">
+                            <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label
-                                    Grid.Column="0"
-                                    Grid.Row="0"
+                                <StackLayout
+                                Grid.Column="0"
+                                VerticalOptions="Center">
+                                    <Label
                                     FontAttributes="Bold"
-                                    Text="{Binding Name}"/>
+                                    FontSize="Medium"
+                                    Text="{Binding Name, Mode=TwoWay}"
+                                    TextColor="Black">
+                                    </Label>
+                                    <Label
+                                    Text="{Binding Capital, Mode=TwoWay}"
+                                    TextColor="Black">
+                                    </Label>
+                                </StackLayout>
+                                <Image
+                                Grid.Column="1"
+                                HorizontalOptions="End"
+                                Source="ic_chevron_right">
+                                </Image>
                             </Grid>
-                        </Grid>
+                        </Frame>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
-    
 </ContentPage>
-
-<!-- ItemsSource="{Binding Countries}" -->
