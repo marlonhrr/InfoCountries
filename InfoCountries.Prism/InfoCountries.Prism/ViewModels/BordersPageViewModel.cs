@@ -14,7 +14,6 @@ namespace InfoCountries.Prism.ViewModels
 
         public BordersPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Title = "Borders";
             LoadBorders();
         }
 
