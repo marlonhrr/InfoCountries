@@ -24,7 +24,7 @@ namespace InfoCountries.Prism.ViewModels
             if (parameters.ContainsKey("country"))
             {
                 Country = parameters.GetValue<CountryResponse>("country");
-                Title = "Information";
+                //Title = "Information";
             }
         }
     }

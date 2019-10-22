@@ -23,6 +23,11 @@ namespace InfoCountries.Prism.Helpers
             get { return Resource.Loading; }
         }
 
+        public static string Welcome
+        {
+            get { return Resource.Welcome; }
+        }
+        
         public static string Next
         {
             get { return Resource.Next; }

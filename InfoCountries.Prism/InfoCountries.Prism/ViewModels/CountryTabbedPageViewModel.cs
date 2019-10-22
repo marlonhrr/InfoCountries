@@ -9,7 +9,6 @@ namespace InfoCountries.Prism.ViewModels
     {
         public CountryTabbedPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Title = "Country";
         }
     }
 }

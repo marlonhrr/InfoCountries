@@ -18,7 +18,7 @@ namespace InfoCountries.Prism.ViewModels
         public HomePageViewModel(
             INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
-            Title = "InfoCountries";
+            //Title = "InfoCountries";
             IsEnabled = true;
             _navigationService = navigationService;
             _apiService = apiService;

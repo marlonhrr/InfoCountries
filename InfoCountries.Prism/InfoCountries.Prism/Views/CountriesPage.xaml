@@ -10,7 +10,7 @@
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
              BackgroundColor="Silver"
-             Title="Welcome">
+             Title="{trad:Translate Welcome}">
 
     <ContentPage.Resources>
         <ResourceDictionary>

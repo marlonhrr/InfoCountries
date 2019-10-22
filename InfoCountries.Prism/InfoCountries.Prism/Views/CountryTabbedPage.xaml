@@ -5,7 +5,8 @@
             xmlns:tabs="clr-namespace:InfoCountries.Prism.Views"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="InfoCountries.Prism.Views.CountryTabbedPage"
-            Title="Countries">
+            xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
+            Title="{trad:Translate Countries}">
 
     <TabbedPage.Children>
         <tabs:CountryPage/>

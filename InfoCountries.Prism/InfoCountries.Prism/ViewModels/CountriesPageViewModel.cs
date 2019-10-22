@@ -31,7 +31,6 @@ namespace InfoCountries.Prism.ViewModels
             _apiService = apiService;
             _getInstance = this;
             IsRunning = true;
-            Title = "Countries";
             LoadCountries();
         }
 

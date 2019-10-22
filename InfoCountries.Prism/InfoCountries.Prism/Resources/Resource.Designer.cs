@@ -392,5 +392,14 @@ namespace InfoCountries.Prism.Resources {
                 return ResourceManager.GetString("TurnOnInternet", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
+            }
+        }
     }
 }
