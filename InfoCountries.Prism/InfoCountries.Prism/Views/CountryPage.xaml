@@ -10,7 +10,7 @@
              xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
              BackgroundColor="Silver"
              Icon="ic_action_info"
-             Title="Information">
+             Title="{Binding Title}">
 
     <ContentPage.Resources>
         <ResourceDictionary>

@@ -1,4 +1,6 @@
-﻿using InfoCountries.Prism.Models;
+﻿using GalaSoft.MvvmLight.Command;
+using InfoCountries.Prism.Helpers;
+using InfoCountries.Prism.Models;
 using InfoCountries.Prism.Services;
 using Prism.Commands;
 using Prism.Navigation;
@@ -6,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace InfoCountries.Prism.ViewModels
 {
@@ -14,26 +17,41 @@ namespace InfoCountries.Prism.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
         private ObservableCollection<CountryItemViewModel> _countries;
+        private bool _isRunning;
         private bool _isRefreshing;
         private bool _isEnabled;
         private string _filter;
         private DelegateCommand _searchCommand;
-        private List<CountryResponse> countriesList;
+        private List<CountryResponse> _countriesList;
+        private static CountriesPageViewModel _getInstance;
 
         public CountriesPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
             _navigationService = navigationService;
             _apiService = apiService;
+            _getInstance = this;
+            IsRunning = true;
             Title = "Countries";
             LoadCountries();
         }
 
         public DelegateCommand SearchCommand => _searchCommand ?? (_searchCommand = new DelegateCommand(Search));
 
+        public ICommand RefreshCommand
+        {
+            get { return new RelayCommand(LoadCountries); }
+        }
+
         public ObservableCollection<CountryItemViewModel> Countries
         {
             get => _countries;
             set => SetProperty(ref _countries, value);
+        }
+
+        public bool IsRunning
+        {
+            get => _isRunning;
+            set => SetProperty(ref _isRunning, value);
         }
 
         public bool IsRefreshing
@@ -58,23 +76,25 @@ namespace InfoCountries.Prism.ViewModels
             }
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
+        public static CountriesPageViewModel GetInstance()
         {
-            base.OnNavigatedTo(parameters);
+            return _getInstance;
         }
 
         private async void LoadCountries()
         {
+            IsRunning = true;
             IsRefreshing = true;
             var connection = await _apiService.CheckConnection();
             if (!connection.IsSuccess)
             {
                 IsEnabled = true;
+                IsRunning = false;
                 IsRefreshing = false;
                 await App.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Check the internet connection.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.ConnectionError,
+                    Languages.Accept);
                 await App.Current.MainPage.Navigation.PopAsync();
                 return;
             }
@@ -86,23 +106,25 @@ namespace InfoCountries.Prism.ViewModels
 
             if (!response.IsSuccess)
             {
+                IsRunning = false;
                 IsRefreshing = false;
                 await App.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     response.Message,
-                    "Accept");
+                    Languages.Accept);
                 return;
             }
 
-            countriesList = (List<CountryResponse>)response.Result;
+            _countriesList = (List<CountryResponse>)response.Result;
             Countries = new ObservableCollection<CountryItemViewModel>(
                 ToCountryItemViewModel());
+            IsRunning = false;
             IsRefreshing = false;
         }
 
         private IEnumerable<CountryItemViewModel> ToCountryItemViewModel()
         {
-            return countriesList.Select(c => new CountryItemViewModel(_navigationService)
+            return _countriesList.Select(c => new CountryItemViewModel(_navigationService)
             {
                 Alpha2Code = c.Alpha2Code,
                 Alpha3Code = c.Alpha3Code,

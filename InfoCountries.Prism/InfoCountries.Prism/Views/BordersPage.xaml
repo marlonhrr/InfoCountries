@@ -7,10 +7,35 @@
              BackgroundColor="Silver"
              Icon="ic_action_language"
              Title="Borders">
-    
-    <StackLayout>
+
+    <StackLayout
+            Padding="5">
         <Label
-            Text="Borders">
+                FontSize="Large"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="{Binding Country.Name}"
+                TextColor="Black">
         </Label>
+        <ListView
+                HasUnevenRows="true"
+                ItemsSource="{Binding Borders}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                Grid.Column="0"
+                                Text="{Binding Name}"
+                                TextColor="Black">
+                            </Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>

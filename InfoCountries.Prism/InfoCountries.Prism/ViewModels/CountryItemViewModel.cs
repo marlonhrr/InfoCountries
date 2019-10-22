@@ -1,4 +1,6 @@
-﻿using InfoCountries.Prism.Models;
+﻿using InfoCountries.Prism.Helpers;
+using InfoCountries.Prism.Models;
+using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
 
@@ -18,9 +20,10 @@ namespace InfoCountries.Prism.ViewModels
 
         private async void SelectCountry()
         {
+            Settings.Country = JsonConvert.SerializeObject(this);
             var parameters = new NavigationParameters
             {
-                { "country", this }
+                { "country", this}
             };
             await _navigationService.NavigateAsync("CountryTabbedPage", parameters);
         }
