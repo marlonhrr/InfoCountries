@@ -4,7 +4,7 @@ using InfoCountries.Prism.ViewModels;
 using InfoCountries.Prism.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using InfoCountries.Common.Services;
+using InfoCountries.Prism.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace InfoCountries.Prism

@@ -1,5 +1,5 @@
-﻿using InfoCountries.Common.Models;
-using InfoCountries.Common.Services;
+﻿using InfoCountries.Prism.Models;
+using InfoCountries.Prism.Services;
 using Prism.Commands;
 using Prism.Navigation;
 

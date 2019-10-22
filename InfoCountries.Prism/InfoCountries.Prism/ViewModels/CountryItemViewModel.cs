@@ -1,4 +1,4 @@
-﻿using InfoCountries.Common.Models;
+﻿using InfoCountries.Prism.Models;
 using Prism.Commands;
 using Prism.Navigation;
 
