@@ -232,7 +232,7 @@ namespace InfoCountries.Prism.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to the app.
+        ///   Looks up a localized string similar to Which country do you want to know?.
         /// </summary>
         public static string InfoApp {
             get {
@@ -264,6 +264,15 @@ namespace InfoCountries.Prism.Resources {
         public static string Japanese {
             get {
                 return ResourceManager.GetString("Japanese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading....
+        /// </summary>
+        public static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
             }
         }
         

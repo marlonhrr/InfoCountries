@@ -18,14 +18,7 @@
                 TextColor="Black"
                 FontSize="Large"
                 FontAttributes="Bold"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand"/>
-                <Label
-                Text="¡ InfoCountries !"
-                TextColor="Black"
-                FontSize="Large"
-                FontAttributes="Bold"
-                VerticalOptions="CenterAndExpand"
+                VerticalOptions="FillAndExpand"
                 HorizontalOptions="CenterAndExpand"/>
                 <Image
                 Source="countries"
@@ -50,11 +43,10 @@
                 	HorizontalOptions="Center"
                 	TextColor="Black"
                 	IsVisible="{Binding IsRunning}"
-                	Title="Loading..."
+                	Title="{trad:Translate Loading}"
                 	VerticalOptions="Center"
-                	ViewBoxWidth="80"
-                	ViewBoxHeight="80" />
-
+                	ViewBoxWidth="150"
+                	ViewBoxHeight="150" />
         </AbsoluteLayout>
     </ScrollView>
 </ContentPage>

@@ -17,6 +17,12 @@ namespace InfoCountries.Prism.Helpers
         {
             get { return Resource.InfoApp; }
         }
+
+        public static string Loading
+        {
+            get { return Resource.Loading; }
+        }
+
         public static string Next
         {
             get { return Resource.Next; }

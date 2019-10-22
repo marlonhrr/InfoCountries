@@ -220,9 +220,12 @@
     <value>Por favor, ligue a conexão à Internet.</value>
   </data>
   <data name="InfoApp" xml:space="preserve">
-    <value>Bem-vindo ao aplicativo</value>
+    <value>Quel pays voulez-vous connaître?</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Seguinte</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Carregando...</value>
   </data>
 </root>
