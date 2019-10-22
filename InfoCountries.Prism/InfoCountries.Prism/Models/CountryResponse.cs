@@ -10,7 +10,7 @@ namespace InfoCountries.Prism.Models
         public string Name { get; set; }
 
         [JsonProperty("topLevelDomain")]
-        public string[] TopLevelDomain { get; set; }
+        public List<string> TopLevelDomain { get; set; }
 
         [JsonProperty("alpha2Code")]
         public string Alpha2Code { get; set; }
@@ -61,10 +61,10 @@ namespace InfoCountries.Prism.Models
         public string NumericCode { get; set; }
 
         [JsonProperty("currencies")]
-        public CurrencyResponse[] Currencies { get; set; }
+        public List<CurrencyResponse> Currencies { get; set; }
 
         [JsonProperty("languages")]
-        public LanguageResponse[] Languages { get; set; }
+        public List<LanguageResponse> Languages { get; set; }
 
         [JsonProperty("translations")]
         public TranslationsResponse Translations { get; set; }
@@ -73,7 +73,7 @@ namespace InfoCountries.Prism.Models
         public string Flag { get; set; }
 
         [JsonProperty("regionalBlocs")]
-        public RegionalBlocResponse[] RegionalBlocs { get; set; }
+        public List<RegionalBlocResponse> RegionalBlocs { get; set; }
 
         [JsonProperty("cioc")]
         public string Cioc { get; set; }

@@ -5,8 +5,9 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.BordersPage"
              BackgroundColor="Silver"
+             xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
              Icon="ic_action_language"
-             Title="Borders">
+             Title="{trad:Translate Borders}">
 
     <StackLayout
             Padding="5">

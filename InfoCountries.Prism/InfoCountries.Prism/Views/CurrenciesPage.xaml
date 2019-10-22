@@ -3,14 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="InfoCountries.Prism.Views.CurrenciesPage"             
+             x:Class="InfoCountries.Prism.Views.CurrenciesPage"    
+             xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
              BackgroundColor="Silver"
              Icon="ic_action_monetization_on"
-             Title="Currencies">
-    
-    <StackLayout>
+             Title="{trad:Translate Currencies}">
+
+    <StackLayout
+            Padding="5">
         <Label
-            Text="Currencies">
+                FontSize="Large"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="{Binding Country.Name}"
+                TextColor="Black">
         </Label>
-    </StackLayout>
+        <ListView
+                HasUnevenRows="true"
+                ItemsSource="{Binding Currencies}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                Grid.Column="0"
+                                Text="{Binding Name}"
+                                TextColor="Black"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Label 
+                                Grid.Column="1"
+                                FontSize="40"
+                                Text="{Binding Symbol}"
+                                TextColor="Black">
+                            </Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+     </StackLayout>
 </ContentPage>

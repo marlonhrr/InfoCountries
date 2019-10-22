@@ -5,13 +5,155 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.TranslationsPage"
              BackgroundColor="Silver"
+             xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
              Icon="ic_action_translate"
-             Title="Translations">
-    
-    <StackLayout>
+             Title="{trad:Translate Translations}">
+
+    <StackLayout
+            Padding="5">
         <Label
-            Text="Translations">
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="{Binding Country.Name}"
+                TextColor="Black">
         </Label>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="{trad:Translate German}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.Germany}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="{trad:Translate Spanish}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.Spanish}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Text="{trad:Translate French}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.French}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Text="{trad:Translate Japanese}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.Japanese}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Text="{trad:Translate Italian}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.Italian}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="5"
+                    Text="{trad:Translate Brazilian}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.Brazilian}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="6"
+                    Text="{trad:Translate Portuguese}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.Portuges}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="7"
+                    Text="{trad:Translate Dutch}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="7"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.Dutch}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="8"
+                    Text="{trad:Translate Croatian}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="8"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.Croatian}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="9"
+                    Text="{trad:Translate Persian}"
+                    TextColor="Black">
+            </Label>
+            <Label
+                    Grid.Column="1"
+                    Grid.Row="9"
+                    FontAttributes="Bold"
+                    Text="{Binding Translations.Persian}"
+                    TextColor="Black">
+            </Label>
+        </Grid>
     </StackLayout>
-  
+
 </ContentPage>
