@@ -70,7 +70,7 @@ namespace InfoCountries.Common.Models
         public TranslationsResponse Translations { get; set; }
 
         [JsonProperty("flag")]
-        public Uri Flag { get; set; }
+        public string Flag { get; set; }
 
         [JsonProperty("regionalBlocs")]
         public RegionalBlocResponse[] RegionalBlocs { get; set; }

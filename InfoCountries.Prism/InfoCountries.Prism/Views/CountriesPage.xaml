@@ -4,8 +4,18 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.CountriesPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              BackgroundColor="Silver"
              Title="Welcome">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ffimageloadingsvg:SvgImageSourceConverter 
+                x:Key="SvgImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout>
         <SearchBar
@@ -24,7 +34,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <Frame
-                            CornerRadius="20"
+                            CornerRadius="50"
                             HasShadow="True"
                             Margin="5">
                             <Frame.GestureRecognizers>
@@ -34,11 +44,18 @@
                             </Frame.GestureRecognizers>
                             <Grid>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
+                                <ffimageloading:CachedImage
+                                    Grid.Column="0"
+                                    HeightRequest="30"
+                                    WidthRequest="60"
+                                    Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}">
+                                </ffimageloading:CachedImage>
                                 <StackLayout
-                                Grid.Column="0"
+                                Grid.Column="1"
                                 VerticalOptions="Center">
                                     <Label
                                     FontAttributes="Bold"
@@ -46,13 +63,9 @@
                                     Text="{Binding Name, Mode=TwoWay}"
                                     TextColor="Black">
                                     </Label>
-                                    <Label
-                                    Text="{Binding Capital, Mode=TwoWay}"
-                                    TextColor="Black">
-                                    </Label>
                                 </StackLayout>
                                 <Image
-                                Grid.Column="1"
+                                Grid.Column="2"
                                 HorizontalOptions="End"
                                 Source="ic_chevron_right">
                                 </Image>
