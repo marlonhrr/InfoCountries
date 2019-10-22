@@ -7,32 +7,31 @@
              xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
              Title="{Binding Title}">
     <ScrollView>
-        <StackLayout
-        Padding="10">
-            
-            <Label 
+        <AbsoluteLayout>
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                Padding="10">
+                <Label 
                 Text="{trad:Translate InfoApp}"
                 TextColor="Black"
                 FontSize="Large"
                 FontAttributes="Bold"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"/>
-            <Label
+                <Label
                 Text="¡ InfoCountries !"
                 TextColor="Black"
                 FontSize="Large"
                 FontAttributes="Bold"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"/>
-            <Image
+                <Image
                 Source="countries"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand">
-            </Image>
-            <ActivityIndicator
-        	    IsRunning="{Binding IsRunning}"
-        	    VerticalOptions="CenterAndExpand"/>
-            <Button
+                </Image>
+                <Button
                 BorderRadius="23"
                 BackgroundColor="Navy"
         	    IsEnabled="{Binding IsEnabled}"
@@ -41,6 +40,13 @@
                 HorizontalOptions="FillAndExpand"
                 HeightRequest="46"
                 TextColor="White"/>
-        </StackLayout>
+            </StackLayout>
+            <ActivityIndicator
+                AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.5"
+                AbsoluteLayout.LayoutFlags="All"
+        	    IsRunning="{Binding IsRunning,Mode=TwoWay}"
+        	    VerticalOptions="CenterAndExpand">
+            </ActivityIndicator>
+        </AbsoluteLayout>
     </ScrollView>
 </ContentPage>
