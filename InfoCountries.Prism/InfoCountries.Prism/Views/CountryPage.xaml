@@ -7,6 +7,7 @@
              xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="InfoCountries.Prism.Views.CountryPage"
+             xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
              BackgroundColor="Silver"
              Icon="ic_info"
              Title="Information">
@@ -42,35 +43,35 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label
-                    Grid.Column="0"
-                    Grid.Row="0"
-                    Text="Capital:"
-                    TextColor="Black">
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="{trad:Translate Capital}"
+                        TextColor="Black">
                 </Label>
                 <Label
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    FontAttributes="Bold"
-                    Text="{Binding Country.Capital}"
-                    TextColor="Black">
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        FontAttributes="Bold"
+                        Text="{Binding Country.Capital}"
+                        TextColor="Black">
                 </Label>
                 <Label
-                    Grid.Column="0"
-                    Grid.Row="1"
-                    Text="Population:"
-                    TextColor="Black">
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Text="{trad:Translate Population}"
+                        TextColor="Black">
                 </Label>
                 <Label
-                    Grid.Column="1"
-                    Grid.Row="1"
-                    FontAttributes="Bold"
-                    Text="{Binding Country.Population, StringFormat='{0:N0}'}"
-                    TextColor="Black">
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        FontAttributes="Bold"
+                        Text="{Binding Country.Population, StringFormat='{0:N0}'}"
+                        TextColor="Black">
                 </Label>
                 <Label
                         Grid.Column="0"
                         Grid.Row="2"
-                        Text="Area:"
+                        Text="{trad:Translate Area}"
                         TextColor="Black">
                 </Label>
                 <Label
@@ -83,7 +84,7 @@
                 <Label
                         Grid.Column="0"
                         Grid.Row="3"
-                        Text="AlphaCode2:"
+                        Text="{trad:Translate AlphaCode2}"
                         TextColor="Black">
                 </Label>
                 <Label
@@ -96,7 +97,7 @@
                 <Label
                         Grid.Column="0"
                         Grid.Row="4"
-                        Text="AlphaCode3:"
+                        Text="{trad:Translate AlphaCode3}"
                         TextColor="Black">
                 </Label>
                 <Label
@@ -109,7 +110,7 @@
                 <Label
                         Grid.Column="0"
                         Grid.Row="5"
-                        Text="Region:"
+                        Text="{trad:Translate Region}"
                         TextColor="Black">
                 </Label>
                 <Label
@@ -122,7 +123,7 @@
                 <Label
                         Grid.Column="0"
                         Grid.Row="6"
-                        Text="Subregion:"
+                        Text="{trad:Translate Subregion}"
                         TextColor="Black">
                 </Label>
                 <Label
@@ -135,7 +136,7 @@
                 <Label
                         Grid.Column="0"
                         Grid.Row="7"
-                        Text="Demonym:"
+                        Text="{trad:Translate Demonym}"
                         TextColor="Black">
                 </Label>
                 <Label
@@ -148,7 +149,7 @@
                 <Label
                         Grid.Column="0"
                         Grid.Row="8"
-                        Text="GINI:"
+                        Text="{trad:Translate GINI}"
                         TextColor="Black">
                 </Label>
                 <Label
@@ -161,7 +162,7 @@
                 <Label
                         Grid.Column="0"
                         Grid.Row="9"
-                        Text="NativeName:"
+                        Text="{trad:Translate NativeName}"
                         TextColor="Black">
                 </Label>
                 <Label
@@ -174,7 +175,7 @@
                 <Label
                         Grid.Column="0"
                         Grid.Row="10"
-                        Text="NumericCode:"
+                        Text="{trad:Translate NumericCode}"
                         TextColor="Black">
                 </Label>
                 <Label
@@ -187,7 +188,7 @@
                 <Label
                         Grid.Column="0"
                         Grid.Row="11"
-                        Text="CIOC:"
+                        Text="{trad:Translate CIOC}"
                         TextColor="Black">
                 </Label>
                 <Label
