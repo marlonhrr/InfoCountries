@@ -5,7 +5,9 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.CountryPage"
              BackgroundColor="Silver"
+             Icon="ic_info"
              Title="Information">
+    
     <ScrollView>
         <StackLayout
             Padding="5">

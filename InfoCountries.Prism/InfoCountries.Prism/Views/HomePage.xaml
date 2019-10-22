@@ -8,13 +8,19 @@
     <ScrollView>
         <StackLayout
         Padding="10">
-            <Image>
-
-            </Image>
+            
             <Label 
                 Text="Welcome to the App InfoCountries"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"/>
+                TextColor="Black"
+                FontSize="Large"
+                FontAttributes="Bold"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"/>
+            <Image
+                Source="countries"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand">
+            </Image>
             <ActivityIndicator
         	    IsRunning="{Binding IsRunning}"
         	    VerticalOptions="CenterAndExpand"/>

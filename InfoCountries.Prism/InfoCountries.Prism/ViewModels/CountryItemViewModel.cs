@@ -22,7 +22,7 @@ namespace InfoCountries.Prism.ViewModels
             {
                 { "country", this }
             };
-            await _navigationService.NavigateAsync("CountryPage", parameters);
+            await _navigationService.NavigateAsync("CountryTabbedPage", parameters);
         }
     }
 }

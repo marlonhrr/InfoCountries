@@ -3,6 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="InfoCountries.Prism.Views.CurrenciesPage">
-  
+             x:Class="InfoCountries.Prism.Views.CurrenciesPage"             
+             BackgroundColor="Silver"
+             Icon="ic_monetization_on"
+             Title="Currencies">
+    
+    <StackLayout>
+        <Label
+            Text="Currencies">
+        </Label>
+    </StackLayout>
 </ContentPage>

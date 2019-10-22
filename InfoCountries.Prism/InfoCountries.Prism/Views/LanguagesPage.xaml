@@ -3,6 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="InfoCountries.Prism.Views.LanguagesPage">
+             x:Class="InfoCountries.Prism.Views.LanguagesPage"             
+             BackgroundColor="Silver"
+             Icon="ic_people"
+             Title="Languages">
+    
+    <StackLayout>
+        <Label
+            Text="Languages">
+        </Label>
+    </StackLayout>
   
 </ContentPage>
