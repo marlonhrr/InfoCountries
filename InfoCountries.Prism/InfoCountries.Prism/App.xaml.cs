@@ -17,6 +17,7 @@ namespace InfoCountries.Prism
 
         protected override async void OnInitialized()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTYwNzc4QDMxMzcyZTMzMmUzMEdobmxMZk9yZlFtYXFRTHU0NnZQc29wemhpdjNodGtiUVZXcHIrcDduQ009");
             InitializeComponent();
 
             await NavigationService.NavigateAsync("NavigationPage/HomePage");

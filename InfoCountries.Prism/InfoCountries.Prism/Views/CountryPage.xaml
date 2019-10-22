@@ -9,7 +9,7 @@
              x:Class="InfoCountries.Prism.Views.CountryPage"
              xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
              BackgroundColor="Silver"
-             Icon="ic_info"
+             Icon="ic_action_info"
              Title="Information">
 
     <ContentPage.Resources>

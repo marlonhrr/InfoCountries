@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.LanguagesPage"             
              BackgroundColor="Silver"
-             Icon="ic_people"
+             Icon="ic_action_people"
              Title="Languages">
     
     <StackLayout>

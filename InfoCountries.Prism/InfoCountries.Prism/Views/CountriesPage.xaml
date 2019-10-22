@@ -68,7 +68,7 @@
                                 <Image
                                 Grid.Column="2"
                                 HorizontalOptions="End"
-                                Source="ic_chevron_right">
+                                Source="ic_action_chevron_right">
                                 </Image>
                             </Grid>
                         </Frame>

@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.TranslationsPage"
              BackgroundColor="Silver"
-             Icon="ic_translate"
+             Icon="ic_action_translate"
              Title="Translations">
     
     <StackLayout>

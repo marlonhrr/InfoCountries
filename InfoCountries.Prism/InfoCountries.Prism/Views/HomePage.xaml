@@ -5,6 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.HomePage"
              xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              Title="{Binding Title}">
     <ScrollView>
         <AbsoluteLayout>
@@ -38,15 +39,22 @@
                 Command="{Binding NextCommand}"
                 Text="{trad:Translate Next}"
                 HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand"
                 HeightRequest="46"
                 TextColor="White"/>
             </StackLayout>
-            <ActivityIndicator
-                AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.5"
-                AbsoluteLayout.LayoutFlags="All"
-        	    IsRunning="{Binding IsRunning,Mode=TwoWay}"
-        	    VerticalOptions="CenterAndExpand">
-            </ActivityIndicator>
+            <busyindicator:SfBusyIndicator  
+                	AnimationType="Globe"
+                	AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	AbsoluteLayout.LayoutFlags="All"
+                	HorizontalOptions="Center"
+                	TextColor="Black"
+                	IsVisible="{Binding IsRunning}"
+                	Title="Loading..."
+                	VerticalOptions="Center"
+                	ViewBoxWidth="80"
+                	ViewBoxHeight="80" />
+
         </AbsoluteLayout>
     </ScrollView>
 </ContentPage>

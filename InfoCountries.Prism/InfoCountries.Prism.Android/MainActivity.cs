@@ -4,6 +4,7 @@ using Android.OS;
 using FFImageLoading.Forms.Platform;
 using Prism;
 using Prism.Ioc;
+using Syncfusion.SfBusyIndicator.XForms.Droid;
 
 namespace InfoCountries.Prism.Droid
 {
@@ -19,6 +20,7 @@ namespace InfoCountries.Prism.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CachedImageRenderer.Init(true);
+            new SfBusyIndicatorRenderer();
             LoadApplication(new App(new AndroidInitializer()));
         }
     }
