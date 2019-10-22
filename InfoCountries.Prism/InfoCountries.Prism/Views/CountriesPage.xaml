@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.CountriesPage"
              BackgroundColor="Silver"
-             Title="{Binding Title}">
+             Title="Welcome">
 
     <StackLayout>
         <SearchBar

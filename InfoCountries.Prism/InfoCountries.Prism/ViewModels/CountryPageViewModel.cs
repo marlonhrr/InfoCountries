@@ -6,14 +6,14 @@ namespace InfoCountries.Prism.ViewModels
     public class CountryPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
-        private CountriesResponse _country;
+        private CountryResponse _country;
 
         public CountryPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             _navigationService = navigationService;
         }
 
-        public CountriesResponse Country
+        public CountryResponse Country
         {
             get => _country;
             set => SetProperty(ref _country, value);
@@ -25,7 +25,7 @@ namespace InfoCountries.Prism.ViewModels
 
             if (parameters.ContainsKey("country"))
             {
-                Country = parameters.GetValue<CountriesResponse>("country");
+                Country = parameters.GetValue<CountryResponse>("country");
                 Title = Country.Name;
             }
         }

@@ -4,7 +4,7 @@ using Prism.Navigation;
 
 namespace InfoCountries.Prism.ViewModels
 {
-    public class CountryItemViewModel : CountriesResponse
+    public class CountryItemViewModel : CountryResponse
     {
         private readonly INavigationService _navigationService;
         private DelegateCommand _selectCountryCommand;

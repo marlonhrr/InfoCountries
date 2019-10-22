@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.CountryPage"
              BackgroundColor="Silver"
-             Title="{Binding Title}">
+             Title="Information">
     <ScrollView>
         <StackLayout
             Padding="5">
@@ -14,7 +14,7 @@
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
                 Text="{Binding Country.Name}"
-                TextColor="White">
+                TextColor="Black">
             </Label>
             <Grid>
                 <Grid.ColumnDefinitions>

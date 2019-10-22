@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace InfoCountries.Common.Models
 {
-    public class CountriesResponse
+    public class CountryResponse
     {
         [JsonProperty("name")]
         public string Name { get; set; }

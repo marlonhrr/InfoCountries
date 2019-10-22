@@ -18,7 +18,7 @@ namespace InfoCountries.Prism.ViewModels
         private bool _isEnabled;
         private string _filter;
         private DelegateCommand _searchCommand;
-        private List<CountriesResponse> countriesList;
+        private List<CountryResponse> countriesList;
 
         public CountriesPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
@@ -79,7 +79,7 @@ namespace InfoCountries.Prism.ViewModels
                 return;
             }
 
-            var response = await _apiService.GetListAsync<CountriesResponse>(
+            var response = await _apiService.GetListAsync<CountryResponse>(
                 "https://restcountries.eu",
                 "/rest",
                 "/v2/all");
@@ -94,7 +94,7 @@ namespace InfoCountries.Prism.ViewModels
                 return;
             }
 
-            countriesList = (List<CountriesResponse>)response.Result;
+            countriesList = (List<CountryResponse>)response.Result;
             Countries = new ObservableCollection<CountryItemViewModel>(
                 ToCountryItemViewModel());
             IsRefreshing = false;
