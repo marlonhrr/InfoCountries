@@ -4,13 +4,21 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InfoCountries.Prism.Views.HomePage"
+             xmlns:trad="clr-namespace:InfoCountries.Prism.Helpers"
              Title="{Binding Title}">
     <ScrollView>
         <StackLayout
         Padding="10">
             
             <Label 
-                Text="Welcome to the App InfoCountries"
+                Text="{trad:Translate InfoApp}"
+                TextColor="Black"
+                FontSize="Large"
+                FontAttributes="Bold"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"/>
+            <Label
+                Text="¡ InfoCountries !"
                 TextColor="Black"
                 FontSize="Large"
                 FontAttributes="Bold"
@@ -28,9 +36,10 @@
                 BorderRadius="23"
                 BackgroundColor="Navy"
         	    IsEnabled="{Binding IsEnabled}"
-                Command="{Binding WelcomeCommand}"
+                Command="{Binding NextCommand}"
+                Text="{trad:Translate Next}"
+                HorizontalOptions="FillAndExpand"
                 HeightRequest="46"
-        	    Text="Welcome"
                 TextColor="White"/>
         </StackLayout>
     </ScrollView>
